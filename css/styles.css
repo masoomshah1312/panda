@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background: #0a0a0a; /* Dark background */
+    background: linear-gradient(135deg, #1a1a1a, #2c3e50); /* Dark gradient background */
     margin: 0;
     padding: 0;
     display: flex;
@@ -21,6 +21,8 @@ body {
 .header h1 {
     font-size: 2.5rem;
     margin: 0;
+    color: #00ffcc; /* Neon teal */
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
 }
 
 .header p {
@@ -34,25 +36,32 @@ body {
 }
 
 .neon-box {
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid #00ffcc;
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphic effect */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 15px;
     padding: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .neon-box:hover {
     transform: translateY(-10px);
+    box-shadow: 0 12px 40px rgba(0, 255, 204, 0.3);
 }
 
 .neon-icon {
     font-size: 3rem;
     margin-bottom: 20px;
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
 }
 
 .neon-box h2 {
     font-size: 1.8rem;
     margin: 10px 0;
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
 }
 
 .neon-box p {
@@ -67,17 +76,19 @@ body {
     justify-content: center;
     padding: 12px 24px;
     background: #00ffcc;
-    color: #0a0a0a;
+    color: #1a1a1a;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     transition: background 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     border: none;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
 }
 
 .neon-button:hover {
     background: #00e6b8;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.8);
 }
 
 .neon-button i {
@@ -91,14 +102,35 @@ body {
     gap: 10px;
     margin-top: 20px;
     max-height: 0; /* Start with no height */
-    overflow: hidden; /* Hide overflow */
-    transition: max-height 0.5s ease, opacity 0.5s ease;
+    overflow-y: auto; /* Enable vertical scrolling */
     opacity: 0; /* Start fully transparent */
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #00ffcc #1a1a1a; /* For Firefox */
 }
 
 .download-links.show {
-    max-height: 200px; /* Adjust based on content height */
+    max-height: 150px; /* Adjust based on content height */
     opacity: 1; /* Fully visible */
+}
+
+/* Custom scrollbar for WebKit browsers (Chrome, Safari) */
+.download-links::-webkit-scrollbar {
+    width: 8px;
+}
+
+.download-links::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 5px;
+}
+
+.download-links::-webkit-scrollbar-thumb {
+    background: #00ffcc;
+    border-radius: 5px;
+}
+
+.download-links::-webkit-scrollbar-thumb:hover {
+    background: #00e6b8;
 }
 
 .download-link {
@@ -108,11 +140,12 @@ body {
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .download-link:hover {
     background: rgba(255, 255, 255, 0.2);
+    transform: translateX(10px);
 }
 
 /* RGB Animations */
